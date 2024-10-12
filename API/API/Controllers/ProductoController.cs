@@ -30,7 +30,7 @@ namespace API.Controllers
         {
             if (id >= _productos.Count || id < 0)
             {
-                return NotFound("El id no esta en el sistema.");
+                return NotFound("El id no esta en el sistema. ");
             }
 
             return Ok(_productos[id]);
@@ -43,7 +43,7 @@ namespace API.Controllers
             if (string.IsNullOrWhiteSpace(_nuevoProducto) ||
                  string.IsNullOrEmpty(_nuevoProducto))
             {
-                return BadRequest("El nombre no es valido.");
+                return BadRequest("El nombre no es valido. ");
             }
 
             _productos.Add(_nuevoProducto);
@@ -60,7 +60,7 @@ namespace API.Controllers
 
             if (id >= _productos.Count || id < 0)
             {
-                return NotFound("El id no esta en el sistema.");
+                return NotFound("El id no esta en el sistema. ");
             }
             _productos.RemoveAt(id);
 
@@ -73,13 +73,13 @@ namespace API.Controllers
         {
             if (id >= _productos.Count || id < 0)
             {
-                return NotFound("El id no esta en el sistema.");
+                return NotFound("El id no esta en el sistema. ");
             }
 
             if (string.IsNullOrWhiteSpace(_nuevoProducto) ||
                 string.IsNullOrEmpty(_nuevoProducto))
             {
-                return BadRequest("El nombre no es valido.");
+                return BadRequest("El nombre no es valido. ");
             }
 
             //Actualizar
