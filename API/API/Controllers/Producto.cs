@@ -34,9 +34,16 @@ namespace API.Controllers
         [HttpPost]
         public IActionResult agregarProductos([FromBody] string _nuevoProducto)
         {
+            if (string.IsNullOrWhiteSpace(_nuevoProducto) || string.IsNullOrEmpty(_nuevoProducto)
+            { 
+                return BadRequest("El nombre no es válido. ")
+            }
+
             _productos.Add(_nuevoProducto);
-            return CreatedAtAction(nameof(obtenerProductos), 
-                new { id = _productos.Count - 1 });
+            return CreatedAtAction(
+                nameof(obtenerProductos), 
+                new { id = _productos.Count - 1 }
+                );
         }
 
     }
