@@ -21,6 +21,11 @@ namespace API.Controllers
         [HttpGet("{id}")]
         public IActionResult obtenerProductos(int id)
         {
+            if (id >= _productos.Count)
+            {
+                return NotFound("El ID no está en el sistema. ")
+            }
+
             return Ok(_productos[id]);
         }
         // GET, POST, PUT, DELETE CRUD
