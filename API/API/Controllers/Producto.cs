@@ -35,7 +35,8 @@ namespace API.Controllers
         public IActionResult agregarProductos([FromBody] string _nuevoProducto)
         {
             _productos.Add(_nuevoProducto);
-            return CreatedAtAction(nameof(obtenerProductos), new { id = _productos });
+            return CreatedAtAction(nameof(obtenerProductos), 
+                new { id = _productos.Count - 1 });
         }
 
     }
