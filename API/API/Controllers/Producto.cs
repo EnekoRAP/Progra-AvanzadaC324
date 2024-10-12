@@ -5,66 +5,99 @@ namespace API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class Producto : ControllerBase
+    public class ProductoController : ControllerBase
     {
-        // Variables
+        //Variables
+        //??????? 
         private static List<string> _productos = new List<string>
         {
-            "TV", "Itachi", "Venom", "Laptop", "Monitor"
+            "TV","Itachi","Venom","laptop","monitor"
         };
 
-        /// <summary>
-        /// Métodos CRUD - GET, POST, PUT, DELETE
-        /// </summary>
-        /// <returns></returns>
 
-        // GET
         [HttpGet]
-        public IActionResult obtenerProductos()
+        public IActionResult ObtenerProductos()
         {
             return Ok(_productos);
         }
 
-        // GET by id
+
         [HttpGet("{id}")]
-        public IActionResult obtenerProductos(int id)
+        public IActionResult ObtenerProductos(int id)
         {
-            if (id >= _productos.Count || id <= 0)
+            ///???????
+            /////Me construye???
+            /// {
+            //    "TV","Itachi","Venom","laptop","monitor"
+            //};
+
+            if (id >= _productos.Count || id < 0)
             {
-                return NotFound("El id no está en el sistema. ");
+                return NotFound("El id no esta en el sistema.");
             }
 
             return Ok(_productos[id]);
         }
-
-        // POST
+        //GET
+        //
+        //
+        //
+        //POST PUT DELETE CRUD
         [HttpPost]
-        public IActionResult agregarProductos([FromBody] string _nuevoProducto)
+        public IActionResult AgregarProducto([FromBody] string _nuevoProducto)
         {
-            if (string.IsNullOrWhiteSpace(_nuevoProducto) || 
-                string.IsNullOrEmpty(_nuevoProducto))
+
+            //????
+            if (string.IsNullOrWhiteSpace(_nuevoProducto) ||
+                 string.IsNullOrEmpty(_nuevoProducto))
             {
-                return BadRequest("El nombre no es válido. ");
+                return BadRequest("El nombre no es valido.");
             }
 
             _productos.Add(_nuevoProducto);
             return CreatedAtAction(
-                nameof(obtenerProductos),
+                nameof(ObtenerProductos),
                 new { id = _productos.Count - 1 }
             );
         }
 
-        // DELETE
+        //DELETE???
         [HttpDelete("{id}")]
-        public IActionResult borrarProductos(int id)
+        public IActionResult BorrarProductos(int id)
         {
-            return NotFound("El id no está en el sistema. ");
+
+            if (id >= _productos.Count || id < 0)
+            {
+                return NotFound("El id no esta en el sistema.");
+            }
             _productos.RemoveAt(id);
 
             return NoContent();
         }
 
-        // PUT
+        //PUT???
+
+        [HttpPut("{id}")]
+        public IActionResult ActualizarProducto(int id, [FromBody] string _nuevoProducto)
+        {
+
+            if (id >= _productos.Count || id < 0)
+            {
+                return NotFound("El id no esta en el sistema.");
+            }
+
+            if (string.IsNullOrWhiteSpace(_nuevoProducto) ||
+                string.IsNullOrEmpty(_nuevoProducto))
+            {
+                return BadRequest("El nombre no es valido.");
+            }
+
+            //Actualizar
+            _productos[id] = _nuevoProducto;
+
+
+            return Ok($"Producto modificado, id: {id} , {_productos[id]} ");
+        }
 
 
     }
