@@ -21,7 +21,7 @@ namespace API.Controllers
         [HttpGet("{id}")]
         public IActionResult obtenerProductos(int id)
         {
-            return Ok(id);
+            return Ok(_productos[id]);
         }
         // GET, POST, PUT, DELETE CRUD
 
