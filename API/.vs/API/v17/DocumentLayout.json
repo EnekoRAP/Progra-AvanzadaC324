@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "C:\\xampp\\htdocs\\Progra-AvanzadaC324\\API\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{61A3B810-DBB2-4568-87F2-71CA281A9942}|API\\API.csproj|c:\\xampp\\htdocs\\progra-avanzadac324\\api\\api\\controllers\\producto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{61A3B810-DBB2-4568-87F2-71CA281A9942}|API\\API.csproj|solutionrelative:api\\controllers\\producto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{61A3B810-DBB2-4568-87F2-71CA281A9942}|API\\API.csproj|c:\\xampp\\htdocs\\progra-avanzadac324\\api\\api\\controllers\\productocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{61A3B810-DBB2-4568-87F2-71CA281A9942}|API\\API.csproj|solutionrelative:api\\controllers\\productocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,11 +19,11 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Producto.cs",
-              "DocumentMoniker": "C:\\xampp\\htdocs\\Progra-AvanzadaC324\\API\\API\\Controllers\\Producto.cs",
-              "RelativeDocumentMoniker": "API\\Controllers\\Producto.cs",
-              "ToolTip": "C:\\xampp\\htdocs\\Progra-AvanzadaC324\\API\\API\\Controllers\\Producto.cs",
-              "RelativeToolTip": "API\\Controllers\\Producto.cs",
+              "Title": "ProductoController.cs",
+              "DocumentMoniker": "C:\\xampp\\htdocs\\Progra-AvanzadaC324\\API\\API\\Controllers\\ProductoController.cs",
+              "RelativeDocumentMoniker": "API\\Controllers\\ProductoController.cs",
+              "ToolTip": "C:\\xampp\\htdocs\\Progra-AvanzadaC324\\API\\API\\Controllers\\ProductoController.cs",
+              "RelativeToolTip": "API\\Controllers\\ProductoController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAFkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-12T01:10:12.9Z",
