@@ -7,30 +7,27 @@ namespace API.Controllers
     [Route("api/[controller]")]
     public class ProductoController : ControllerBase
     {
-        //Variables
-        //??????? 
+
+        // Variables
         private static List<string> _productos = new List<string>
         {
             "TV","Itachi","Venom","laptop","monitor"
         };
 
+        /// <summary>
+        /// Métodos CRUD - GET, POST, PUT, DELETE
+        /// </summary>
 
+        // GET
         [HttpGet]
         public IActionResult ObtenerProductos()
         {
             return Ok(_productos);
         }
 
-
         [HttpGet("{id}")]
         public IActionResult ObtenerProductos(int id)
         {
-            ///???????
-            /////Me construye???
-            /// {
-            //    "TV","Itachi","Venom","laptop","monitor"
-            //};
-
             if (id >= _productos.Count || id < 0)
             {
                 return NotFound("El id no esta en el sistema.");
@@ -38,16 +35,11 @@ namespace API.Controllers
 
             return Ok(_productos[id]);
         }
-        //GET
-        //
-        //
-        //
-        //POST PUT DELETE CRUD
+        
+        // POST
         [HttpPost]
         public IActionResult AgregarProducto([FromBody] string _nuevoProducto)
         {
-
-            //????
             if (string.IsNullOrWhiteSpace(_nuevoProducto) ||
                  string.IsNullOrEmpty(_nuevoProducto))
             {
@@ -61,7 +53,7 @@ namespace API.Controllers
             );
         }
 
-        //DELETE???
+        // DELETE
         [HttpDelete("{id}")]
         public IActionResult BorrarProductos(int id)
         {
@@ -75,12 +67,10 @@ namespace API.Controllers
             return NoContent();
         }
 
-        //PUT???
-
+        // PUT
         [HttpPut("{id}")]
         public IActionResult ActualizarProducto(int id, [FromBody] string _nuevoProducto)
         {
-
             if (id >= _productos.Count || id < 0)
             {
                 return NotFound("El id no esta en el sistema.");
@@ -95,10 +85,8 @@ namespace API.Controllers
             //Actualizar
             _productos[id] = _nuevoProducto;
 
-
             return Ok($"Producto modificado, id: {id} , {_productos[id]} ");
         }
-
 
     }
 }
