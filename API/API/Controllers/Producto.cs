@@ -41,7 +41,8 @@ namespace API.Controllers
         [HttpPost]
         public IActionResult agregarProductos([FromBody] string _nuevoProducto)
         {
-            if (string.IsNullOrWhiteSpace(_nuevoProducto) || string.IsNullOrEmpty(_nuevoProducto))
+            if (string.IsNullOrWhiteSpace(_nuevoProducto) || 
+                string.IsNullOrEmpty(_nuevoProducto))
             {
                 return BadRequest("El nombre no es válido. ");
             }
