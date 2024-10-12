@@ -21,7 +21,7 @@ namespace API.Controllers
         [HttpGet("{id}")]
         public IActionResult obtenerProductos(int id)
         {
-            if (id >= _productos.Count)
+            if (id >= _productos.Count || id <= 0)
             {
                 return NotFound("El ID no está en el sistema. ")
             }
