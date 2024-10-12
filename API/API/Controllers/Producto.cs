@@ -28,7 +28,15 @@ namespace API.Controllers
 
             return Ok(_productos[id]);
         }
+        // GET
+
         // GET, POST, PUT, DELETE CRUD
+        [HttpPost]
+        public IActionResult agregarProductos([FromBody] string _nuevoProducto)
+        {
+            _productos.Add(_nuevoProducto);
+            return CreatedAtAction(nameof(obtenerProductos), new { id = _productos });
+        }
 
     }
 }
