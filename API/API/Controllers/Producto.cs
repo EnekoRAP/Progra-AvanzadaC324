@@ -13,7 +13,7 @@ namespace API.Controllers
         };
 
         [HttpGet]
-        public IActionResult Index()
+        public IActionResult obtenerProductos()
         {
             return Ok(_productos);
         }
