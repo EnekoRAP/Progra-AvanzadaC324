@@ -7,8 +7,9 @@ namespace API.Controllers
     [Route("api/[controller]")]
     public class ConexionController : ControllerBase
     {
-        //Ocupo la config, el appsettings???
-        //Como se declaran variables???????????
+
+        // Configurar el appsettings
+        // Declarar variables
         private readonly IConfiguration _configuration;
 
         public ConexionController(IConfiguration configuration)
@@ -16,31 +17,28 @@ namespace API.Controllers
             _configuration = configuration;
         }
 
-        //Que nos falta para probar la conexion????
-        //????
+        // Probar la conexión
         [HttpGet]
         public ActionResult Conectar()
         {
-            string connectionString = _configuration.GetConnectionString("Minombredeconexion");//????
+            string connectionString = _configuration.GetConnectionString("Minombredeconexion");
 
-            //???que uso para que ne caiga el sistema???
+            // Evitar que el sistema se caiga
             try
             {
                 using (var conexion = new MySqlConnection(connectionString))
                 {
                     conexion.Open();
-                    return Ok("Conexion Exitosa");
+                    return Ok("Conexión Exitosa. ");
                 }
             }
             catch (Exception ex)
             {
-                //como regreso
+                // Regresar
                 return StatusCode(500, ex.Message);
             }
 
         }
-
-
 
     }
 }

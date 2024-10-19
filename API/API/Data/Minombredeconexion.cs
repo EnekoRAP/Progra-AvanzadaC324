@@ -2,7 +2,7 @@
 
 namespace API.Data
 {
-    //Heredar de la base entityFramework, creamos el contexto de la base de datos
+    // Heredar de la base entityFramework, creamos el contexto de la base de datos
     public class MinombredeconexionDbContext : DbContext
     {
         public MinombredeconexionDbContext(DbContextOptions<MinombredeconexionDbContext> options)

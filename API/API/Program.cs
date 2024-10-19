@@ -3,13 +3,13 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-//Agregamos la conexiondeelservidor
-//"ConnectionString": {
+// Agregamor la conexion del servidor
+// "ConnectionString": {
 //    "Minombredeconexion": "Server=srv863.hstgr.io;Port=3306;User=u484426513_pac324;Password=B&XWouC#9Ef;Database=u484426513_pac324;"
 //  }
 var connectionString = builder.Configuration.GetConnectionString("Minombredeconexion");
 
-//hay que agregarlo al servicio
+// Agregar al servicio
 builder.Services.AddDbContext<MinombredeconexionDbContext>(
     options =>
         options.UseMySql(connectionString, new MySqlServerVersion(new Version(8, 0, 21))
