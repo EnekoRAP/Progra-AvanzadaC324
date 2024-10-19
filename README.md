@@ -1,2 +1,2 @@
 # Progra-AvanzadaC324
- Portafolio Semanal - Programación Avanzada
+ Repositorio para subir los códigos que el profe genera cada semana por lección
