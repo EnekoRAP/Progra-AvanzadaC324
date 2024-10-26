@@ -1,2 +1,2 @@
 # Progra-AvanzadaC324
- Repositorio para subir los códigos que el profe genera cada semana por lección
+ A crud created in C# ASP.NET with a API structure
