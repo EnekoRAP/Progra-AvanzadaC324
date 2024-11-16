@@ -1,7 +1,10 @@
+using Laboratorio_Autenticacion.Pages.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddHttpClient<ApiService>();
 
 var app = builder.Build();
 
