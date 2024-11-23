@@ -13,25 +13,24 @@ namespace Laboratorio_Autenticacion.Pages.Services
     {
         private readonly HttpClient _httpClient;
 
-        public ApiService(HttpClient httpClient) 
+        public ApiService(HttpClient httpClient)
         {
             _httpClient = httpClient;
         }
 
         public async Task<bool> RegisterUserAsync(UserModel user)
         {
-            // {
-            // "name": "nombre_usuarios",
-            // "password": "1234567890",
-            // "email": "correo1@ejemplo.com"
-            // }
+            //            {
+            //    "name": "nombre_usuarios",
+            //    "password": "1234567890",
+            //    "email": "correo1@ejemplo.com"
+            //}
 
             var json = JsonSerializer.Serialize(user);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
             var response = await _httpClient.PostAsync("https://paginas-web-cr.com/Api/apis/InsertarUsuarios.php", content);
 
             return response.IsSuccessStatusCode;
-
         }
 
         // Páginas a desarrollar:
@@ -48,11 +47,12 @@ namespace Laboratorio_Autenticacion.Pages.Services
         // "email": "correo@ejemplo.com"
         // }
 
-        // {
+        //            {
         // "name": "nombre_usuarios",
         // "password": "1234567890",
         // "email": "correo1@ejemplo.com"
         // }
+
 
         // Página de Reenvío de Contraseña:
 
@@ -65,7 +65,8 @@ namespace Laboratorio_Autenticacion.Pages.Services
         // "email": "correo@ejemplo.com"
         // }
 
-        // Página de Autenticación:
+
+        //Página de Autenticación:
 
         // Formulario para ingresar el correo electrónico y la contraseña.
         // Los datos deben enviarse a la API:
@@ -75,6 +76,6 @@ namespace Laboratorio_Autenticacion.Pages.Services
         // {
         // "email": "correo@ejemplo.com",
         // "password": "contraseña_encriptada"
-        // }
+        //}
     }
 }
