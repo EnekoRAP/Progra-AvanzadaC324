@@ -27,6 +27,24 @@ namespace Laboratorio_Autenticacion.Pages.Services
             return response.IsSuccessStatusCode;
         }
 
+        public async Task<bool> SendPasswordAsync(string email)
+        {
+            var json = JsonSerializer.Serialize(new { email });
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            var response = await _httpClient.PostAsync("https://paginas-web-cr.com/Api/apis/SendPassword.php", content);
+
+            return response.IsSuccessStatusCode;
+        }
+
+        public async Task<bool> AuthenticateUserAsync(string email, string password)
+        {
+            var json = JsonSerializer.Serialize(new { email, password });
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            var response = await _httpClient.PostAsJsonAsync("https://paginas-web-cr.com/Api/apis/AutenticarUsuario.php", content);
+
+            return response.IsSuccessStatusCode;
+        }
+
         // Páginas a desarrollar:
 
         // Página de Registro de Usuario:
