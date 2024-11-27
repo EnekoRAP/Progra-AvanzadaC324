@@ -1,35 +1,39 @@
-﻿using Laboratorio_Autenticacion.Pages.Models;
+﻿using Laboratorio_Autenticacion.Pages.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.Net.Http;
-using System.Text;
-using System.Text.Json;
-using System.Threading.Tasks;
 
 public class ReenviarPasswordModel : PageModel
 {
+    private readonly ApiService _apiService;
+
     [BindProperty]
-    public UserModel usuario { get; set; }
-    public string mensaje { get; set; }
+    public string Email { get; set; }
+
+    public string Mensaje { get; set; }
+
+    public ReenviarPasswordModel(ApiService apiService)
+    {
+        _apiService = apiService;
+    }
 
     public async Task<IActionResult> OnPostAsync()
     {
-        if (!ModelState.IsValid)
+        if (string.IsNullOrEmpty(Email))
         {
+            Mensaje = "Ingrese la dirección de su correo electrónico. ";
             return Page();
         }
 
-        var url = "https://paginas-web-cr.com/Api/apis/SendPassword.php";
-        var carga = new { email = usuario.Email };
-        var json = JsonSerializer.Serialize(carga);
+        bool result = await _apiService.SendPasswordAsync(Email);
 
-        using var client = new HttpClient();
-        var content = new StringContent(json, Encoding.UTF8, "application/json");
-        var respuesta = await client.PostAsJsonAsync(url, content);
-
-        mensaje = respuesta.IsSuccessStatusCode
-            ? "Correo de recuperación enviado exitosamente."
-            : "Hubo un problema al enviar el correo.";
+        if (result)
+        {
+            Mensaje = "Enlace de recuperación de contraseña, enviado correctamente. ";
+        }
+        else
+        {
+            Mensaje = "Error al enviar el enlace de recuperació. Inténtelo de nuevo";
+        }
 
         return Page();
     }
